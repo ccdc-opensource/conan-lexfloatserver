@@ -1,6 +1,6 @@
 import os
 import stat
-from conans import tools, ConanFile
+from conans import tools, ConanFile, Version
 from conans.errors import ConanInvalidConfiguration
 
 
