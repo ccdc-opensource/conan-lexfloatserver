@@ -1,4 +1,5 @@
 import os
+import stat
 from conans import tools, ConanFile
 from conans.errors import ConanInvalidConfiguration
 
@@ -44,7 +45,9 @@ class ConanLexFloatServer(ConanFile):
     def package(self):
         if self.settings.os != 'Windows':
             # Make executable
-            os.chmod(os.path.join(self._package_contents_dir, 'LexFloatServer'), 744)
+            server_exe = os.path.join(self._package_contents_dir, 'LexFloatServer')
+            st = os.stat(server_exe)
+            os.chmod(server_exe, st.st_mode | stat.S_IEXEC)
         self.copy("LexFloatServer*", dst="bin", src=self._package_contents_dir)
 
     def package_info(self):
