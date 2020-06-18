@@ -33,7 +33,7 @@ class ConanLexFloatServer(ConanFile):
                 'x86': 'x86',
                 'x86_64': 'x64',
             }[str(self.settings.arch)]
-            if self.version >= tools.Version("4.3.2") and int(str(self.settings.compiler.version)) >= 16:
+            if str(self.version) >= tools.Version("4.3.2") and int(str(self.settings.compiler.version)) >= 16:
                 return os.path.join('vc16', la_arch)
             else:
                 return os.path.join('vc14', la_arch)
