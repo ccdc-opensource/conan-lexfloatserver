@@ -34,12 +34,12 @@ class ConanLexFloatServer(ConanFile):
                 'x86_64': 'x64',
             }[str(self.settings.arch)]
             if int(str(self.settings.compiler.version)) >= 16:
-                return os.path.join(f'vc16', la_arch)
+                return os.path.join('vc16', la_arch)
             else:
-                return os.path.join(f'vc14', la_arch)
+                return os.path.join('vc14', la_arch)
 
         if self.settings.os == 'Macos':
-            return os.path.join('clang', 'x86_64')
+            return os.path.join('x86_64')
         raise ConanInvalidConfiguration('Libraries for this configuration are not available')
 
     def package(self):
@@ -48,7 +48,9 @@ class ConanLexFloatServer(ConanFile):
             server_exe = os.path.join(self._package_contents_dir, 'LexFloatServer')
             st = os.stat(server_exe)
             os.chmod(server_exe, st.st_mode | stat.S_IEXEC)
-        self.copy("LexFloatServer*", dst="bin", src=self._package_contents_dir)
+            self.copy("LexFloatServer", dst="bin", src=self._package_contents_dir)
+        else:
+            self.copy("LexFloatServer.exe", dst="bin", src=self._package_contents_dir)
 
     def package_info(self):
         self.env_info.path.append(os.path.join(self.package_folder, "bin"))
