@@ -39,7 +39,7 @@ class ConanLexFloatServer(ConanFile):
                 return os.path.join(f'vc14', la_arch)
 
         if self.settings.os == 'Macos':
-            return os.path.join('libs', 'clang', 'x86_64')
+            return os.path.join('clang', 'x86_64')
         raise ConanInvalidConfiguration('Libraries for this configuration are not available')
 
     def package(self):
