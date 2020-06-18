@@ -4,8 +4,8 @@
       "sha256": "1cc0a12ebe7ace37968da9b281358a6022f9536142a6f1207749fa5f68d669a7"
       "url": "https://dl.cryptlex.com/downloads/v4.3.1/LexFloatServer-Linux.zip"
     "Macos":
-      "sha256": "44b127cd556b700f805c6fc4c237eeec3973efc51d56c98c59aaea8dc25ee5b1"
+      "sha256": "d3a01a551860830b0229c72892cb8063390a05712a36183ce88640f99951620d"
       "url": "https://dl.cryptlex.com/downloads/v4.3.1/LexFloatServer-Mac.zip"
     "Windows": # No static libraries on windows
-      "sha256": "2d999fb17cd6dd31cd1f8b761721d69b8a0837abf939b6b89c6f04be19dc85ac"
+      "sha256": "491e87196d8af8d3abd7c6209920dccb3942f0ab5265cdca7052e4eded8337e1"
       "url": "https://dl.cryptlex.com/downloads/v4.3.1/LexFloatServer-Win.zip"
