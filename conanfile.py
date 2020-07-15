@@ -56,6 +56,5 @@ class ConanLexFloatServer(ConanFile):
         self.env_info.path.append(os.path.join(self.package_folder, "bin"))
 
     def package_id(self):
-        # we don't really care about the compiler version, unless we're on windows
-        if self.settings.os != "Windows":
-            self.info.settings.compiler.version = "any"
+        # we don't really care about the compiler
+        del self.info.settings.compiler
