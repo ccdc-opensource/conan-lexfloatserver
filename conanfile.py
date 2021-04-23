@@ -11,7 +11,7 @@ class ConanLexFloatServer(ConanFile):
     homepage = "https://cryptlex.com/"
     topics = ("licensing", "cryptlex")
     license = "Proprietary"
-    settings = "os", "compiler", "arch"
+    settings = "os", "arch"
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version][str(self.settings.os)])
@@ -19,27 +19,23 @@ class ConanLexFloatServer(ConanFile):
     @property
     def _package_contents_dir(self):
         if self.settings.os == 'Linux':
-            compiler = 'gcc'
             la_arch = {
                 'x86': 'i386',
                 'x86_64': 'amd64',
-                # TODO: map armv5el, armv5hf, armv6, armv7, armv7hf, armv7s, armv7k, armv8, armv8_32, armv8.3
-                # to arm64, armel, armhf
+                'armv8': 'arm64',
+                'armv8.3': 'arm64',
             }[str(self.settings.arch)]
-            return os.path.join(compiler, la_arch)
+            return os.path.join('gcc', la_arch)
 
         if self.settings.os == 'Windows':
             la_arch = {
                 'x86': 'x86',
                 'x86_64': 'x64',
             }[str(self.settings.arch)]
-            if str(self.version) >= tools.Version("4.3.2") and int(str(self.settings.compiler.version)) >= 16:
-                return os.path.join('vc16', la_arch)
-            else:
-                return os.path.join('vc14', la_arch)
+            return os.path.join('vc16', la_arch)
 
         if self.settings.os == 'Macos':
-            return os.path.join('x86_64')
+            return os.path.join('universal')
         raise ConanInvalidConfiguration('Libraries for this configuration are not available')
 
     def package(self):
@@ -54,7 +50,3 @@ class ConanLexFloatServer(ConanFile):
 
     def package_info(self):
         self.env_info.path.append(os.path.join(self.package_folder, "bin"))
-
-    def package_id(self):
-        # we don't really care about the compiler
-        del self.info.settings.compiler
