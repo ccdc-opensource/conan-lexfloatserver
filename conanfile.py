@@ -50,3 +50,7 @@ class ConanLexFloatServer(ConanFile):
 
     def package_info(self):
         self.env_info.path.append(os.path.join(self.package_folder, "bin"))
+
+    def package_id(self):
+        if self.settings.os == "Macos":
+            del self.info.settings.os.version
