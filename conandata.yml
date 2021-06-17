@@ -22,10 +22,10 @@
   "4.6.1":
     "Linux":
       "sha256": "93e54e39430259227915e052ed50f42700ce8a62a0aaab83ad60fcdf9323c698"
-      "url": "https://dl.cryptlex.com/downloads/v4.6.1/LexFloatServer-Linux.zip"
+      "url": "https://dl.cryptlex.com/downloads/lexfloatserver/v4.6.1/LexFloatServer-Linux.zip"
     "Macos":
       "sha256": "608df874198f07e94d9d4925c9f926085fde0ef6e2158981c1d2d9ccb9cb5391"
-      "url": "https://dl.cryptlex.com/downloads/v4.6.1/LexFloatServer-Mac.zip"
+      "url": "https://dl.cryptlex.com/downloads/lexfloatserver/v4.6.1/LexFloatServer-Mac.zip"
     "Windows":
       "sha256": "332190cae60bf0d3d8bccdb779605695f8186de71d3e865ab004092638fa6edc"
-      "url": "https://dl.cryptlex.com/downloads/v4.6.1/LexFloatServer-Win.zip"
+      "url": "https://dl.cryptlex.com/downloads/lexfloatserver/v4.6.1/LexFloatServer-Win.zip"
