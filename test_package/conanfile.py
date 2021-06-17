@@ -9,7 +9,7 @@ class TestPackageConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             output = StringIO()
-            self.run("lexfloatserver -version", output=output, run_environment=True)
+            self.run("lexfloatserver --version", output=output, run_environment=True)
             output_str = str(output.getvalue())
             self.output.info("Installed version: {}".format(output_str))
             require_version = str(self.deps_cpp_info["lexfloatserver"].version)
