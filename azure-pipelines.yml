@@ -10,12 +10,12 @@ extends:
   template: third-party-library-all-platforms-from-local-recipe.yml@templates
   parameters:
     package: lexfloatserver
-    package_version: 4.6.1
+    package_version: 4.8.5
     destination_repository: ccdc-3rdparty-conan
     build_types:
       - Release
     platforms:
       - centos7_gcc10
       - ubuntu2004_gcc10
-      - macos1015_xcode12
+      - macos11_xcode12
       - win2019_vs2019
